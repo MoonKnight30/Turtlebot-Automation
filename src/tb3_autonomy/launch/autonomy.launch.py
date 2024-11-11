@@ -1,27 +1,27 @@
 import os
-
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-
 from launch_ros.actions import Node
 
-
 def generate_launch_description():
-  pkg_tb3_sim = get_package_share_directory('tb3_sim')
-  pkg_tb3_autonomy = get_package_share_directory('tb3_autonomy')
+    pkg_tb3_sim = get_package_share_directory('tb3_sim')
+    pkg_tb3_autonomy = get_package_share_directory('tb3_autonomy')
 
-  autonomy_node_cmd = Node(
-      package="tb3_autonomy",
-      executable="autonomy_node",
-      name="autonomy_node",
-      parameters=[{
-          "location_file": os.path.join(pkg_tb3_sim, "config", "sim_house_locations.yaml")
-      }]
-  )
+    # Update the path to the location file in src/tb3_sim/config
+    location_file_path = os.path.join(get_package_share_directory('tb3_sim'), '..', '..','..','..','src', 'tb3_sim', 'config', 'sim_house_locations.yaml')
 
-  ld = LaunchDescription()
+    autonomy_node_cmd = Node(
+        package="tb3_autonomy",
+        executable="autonomy_node",
+        name="autonomy_node",
+        parameters=[{
+            "location_file": location_file_path
+        }]
+    )
 
-  # Add the commands to the launch description
-  ld.add_action(autonomy_node_cmd)
+    ld = LaunchDescription()
 
-  return ld
+    # Add the commands to the launch description
+    ld.add_action(autonomy_node_cmd)
+
+    return ld
