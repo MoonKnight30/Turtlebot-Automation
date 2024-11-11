@@ -10,7 +10,8 @@ Before running the project, ensure you have the following installed:
 1. **Ubuntu 22.04**  
 2. **Gazebo 11**  
 3. **ROS 2 Humble**
-
+4. **VCSTOOL**
+5. **Colcon**
 ### Installation
 
 #### 1. Install Gazebo 11
