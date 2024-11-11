@@ -1,0 +1,12 @@
+# Ignore ROS 2 build, install, and log directories
+/build/
+/install/
+/log/
+
+# Ignore colcon ignore files (optional)
+.colcon.ignore
+
+# Ignore backup or swap files
+*.bak
+*.swp
+
