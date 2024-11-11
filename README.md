@@ -42,7 +42,7 @@ sudo apt install ros-humble-turtlebot3-*
 1. Clone the TurtleBot3 repository:
 
 ```bash
-git clone <your-repository-url> .
+git clone https://github.com/MoonKnight30/Turtlebot-Automation.git
 ```
 
 2. Import the required repositories:
